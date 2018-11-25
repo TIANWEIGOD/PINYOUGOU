@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.pyg.mapper.TbBrandMapper">
+    <select id="findAllBrand" resultMap="brandMap">
+        select * from tb_brand
+    </select>
+
+    <insert id="addBrand" parameterType="tbBrand">
+        INSERT INTO tb_brand(name,first_char) VALUES (#{name},#{firstChar})
+    </insert>
+
+    <select id="findBrandById" resultMap="brandMap">
+        SELECT * FROM tb_brand WHERE id = #{id}
+    </select>
+
+    <update id="updateBrand" parameterType="tbBrand">
+        UPDATE tb_brand SET name = #{name},first_char = #{firstChar} where id = #{id}
+    </update>
+
+    <delete id="deleteBrandById" parameterType="int">
+        DELETE FROM tb_brand WHERE id = #{id}
+    </delete>
+
+    <select id="searchBrand" parameterType="tbBrand" resultMap="brandMap">
+        SELECT * FROM tb_brand
+        <where>
+            <if test="name != null and name != ''">
+                name LIKE #{name}
+            </if>
+            <if test="firstChar != null and firstChar != ''">
+                AND first_char = #{firstChar}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectOptionList" resultType="java.util.Map">
+        SELECT id,name as text FROM tb_brand
+    </select>
+    <resultMap id="brandMap" type="tbBrand">
+        <result property="firstChar" column="first_char"/>
+    </resultMap>
+</mapper>
