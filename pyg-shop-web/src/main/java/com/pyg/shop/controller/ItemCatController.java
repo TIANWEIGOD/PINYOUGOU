@@ -3,6 +3,7 @@ import java.util.List;
 
 import com.pyg.utils.PageResult;
 import com.pyg.utils.PygResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -78,8 +79,8 @@ public class ItemCatController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping("/findOne")
-	public TbItemCat findOne(Long id){
+	@RequestMapping("/findOne/{id}")
+	public TbItemCat findOne(@PathVariable("id") Long id){
 		return itemCatService.findOne(id);		
 	}
 	
@@ -108,6 +109,11 @@ public class ItemCatController {
 	@RequestMapping("/search")
 	public PageResult search(@RequestBody TbItemCat itemCat, int page, int rows  ){
 		return itemCatService.findPage(itemCat, page, rows);		
+	}
+
+	@RequestMapping("/findByParentId/{id}")
+	public List<TbItemCat> findByParentId(@PathVariable("id")Long id){
+		return itemCatService.findListByParentId(id);
 	}
 	
 }

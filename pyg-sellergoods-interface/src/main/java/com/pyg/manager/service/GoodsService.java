@@ -2,6 +2,7 @@ package com.pyg.manager.service;
 
 import com.pyg.pojo.TbGoods;
 import com.pyg.utils.PageResult;
+import com.pyg.vo.Goods;
 
 import java.util.List;
 
@@ -29,8 +30,9 @@ public interface GoodsService {
 	
 	/**
 	 * 增加
-	*/
-	public void add(TbGoods goods);
+     * @param goods
+     */
+	public void add(Goods goods);
 	
 	
 	/**
@@ -60,5 +62,8 @@ public interface GoodsService {
 	 * @return
 	 */
 	public PageResult findPage(TbGoods goods, int pageNum, int pageSize);
-	
+
+    void updateAuditStatus(Long[] ids, String auditStatus);
+
+    void updateIsMarketable(Long[] ids, String market);
 }

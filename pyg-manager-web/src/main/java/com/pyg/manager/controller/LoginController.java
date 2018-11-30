@@ -14,7 +14,7 @@ import java.util.Map;
 public class LoginController {
 
 
-    /*@RequestMapping("/name")
+    @RequestMapping("/name")
     public Map<String, String> name() {
         SecurityContext context = SecurityContextHolder.getContext();
         User principal = (User) context.getAuthentication().getPrincipal();
@@ -23,7 +23,7 @@ public class LoginController {
         Map<String, String> map = new HashMap<>();
         map.put("loginName", username);
         return map;
-    }*/
+    }
 
 
 }

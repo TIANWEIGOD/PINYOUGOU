@@ -5,6 +5,7 @@ import com.pyg.utils.PageResult;
 import com.pyg.utils.PygResult;
 
 import java.util.List;
+import java.util.Map;
 
 public interface TypeTemplateService {
     PageResult search(int page, int rows, TbTypeTemplate typeTemplate);
@@ -22,4 +23,6 @@ public interface TypeTemplateService {
     List<TbTypeTemplate> findAll();
 
     PageResult findPage(int page, int rows);
+
+    List<Map> findSpecList(Long id);
 }

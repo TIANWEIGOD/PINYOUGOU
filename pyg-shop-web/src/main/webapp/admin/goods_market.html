@@ -28,7 +28,8 @@
     
 
 </head>
-<body class="hold-transition skin-red sidebar-mini"  ng-app="pinyougou" ng-controller="goodsController">
+<body class="hold-transition skin-red sidebar-mini"
+      ng-app="pinyougou" ng-controller="goodsController" ng-init="searchEntity={auditStatus:'1'};findAllItemCat()">
   <!-- .box-body -->
                 
                     <div class="box-header with-border">
@@ -45,8 +46,8 @@
                                 <div class="form-group form-inline">
                                     <div class="btn-group">
                                         <button type="button" class="btn btn-default" title="删除" ><i class="fa fa-trash-o"></i> 删除</button>
-                                        <button type="button" class="btn btn-default" title="上架" ng-click=""><i class="fa fa-check"></i>上架</button>
-                                        <button type="button" class="btn btn-default" title="下架" ng-click=""><i class="fa fa-ban"></i> 下架</button>                                  
+                                        <button type="button" class="btn btn-default" title="上架" ng-click="updateIsMarketable('1')"><i class="fa fa-check"></i>上架</button>
+                                        <button type="button" class="btn btn-default" title="下架" ng-click="updateIsMarketable('2')"><i class="fa fa-ban"></i> 下架</button>
                                         <button type="button" class="btn btn-default" title="刷新" ><i class="fa fa-refresh"></i> 刷新</button>
                                     </div>
                                 </div>
@@ -82,10 +83,10 @@
 				                          <td>{{pojo.id}}</td>
 									      <td>{{pojo.goodsName}}</td>
 									      <td>{{pojo.price}}</td>
-									      <td>{{pojo.category1Id}}</td>
-									      <td>{{pojo.category2Id}}</td>
-									      <td>{{pojo.category3Id}}</td>
-		                                  <td>{{pojo.isMarketable}}</td>		                                  
+									      <td>{{itemCat[pojo.category1Id]}}</td>
+									      <td>{{itemCat[pojo.category2Id]}}</td>
+									      <td>{{itemCat[pojo.category3Id]}}</td>
+		                                  <td>{{markets[pojo.isMarketable]}}</td>
 		                                  <td class="text-center">                                          
 		                                 	  <button type="button" class="btn bg-olive btn-xs" >详情</button>                  
 		                                  </td>

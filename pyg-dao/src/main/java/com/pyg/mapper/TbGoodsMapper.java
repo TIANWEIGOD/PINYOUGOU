@@ -3,6 +3,7 @@ package com.pyg.mapper;
 import com.pyg.pojo.TbGoods;
 import com.pyg.pojo.TbGoodsExample;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Update;
 
 import java.util.List;
 
@@ -28,4 +29,10 @@ public interface TbGoodsMapper {
     int updateByPrimaryKeySelective(TbGoods record);
 
     int updateByPrimaryKey(TbGoods record);
+
+    @Update("update tb_goods set audit_Status = #{auditStatus} where id = #{id}")
+    void updateAuditStatus(@Param("id") Long id,@Param("auditStatus") String auditStatus);
+
+    @Update("update tb_goods set is_marketable = #{market} where id = #{id}")
+    void updateIsMarketable(@Param("id") Long id,@Param("market") String market);
 }

@@ -1,8 +1,10 @@
 package com.pyg.shop.controller;
 import java.util.List;
+import java.util.Map;
 
 import com.pyg.utils.PageResult;
 import com.pyg.utils.PygResult;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -79,8 +81,8 @@ public class TypeTemplateController {
 	 * @param id
 	 * @return
 	 */
-	@RequestMapping("/findOne")
-	public TbTypeTemplate findOne(Long id){
+	@RequestMapping("/findOne/{id}")
+	public TbTypeTemplate findOne(@PathVariable("id") Long id){
 		return typeTemplateService.findOne(id);		
 	}
 	
@@ -109,6 +111,11 @@ public class TypeTemplateController {
 	@RequestMapping("/search")
 	public PageResult search(@RequestBody TbTypeTemplate typeTemplate, int page, int rows  ){
 		return typeTemplateService.findPage(typeTemplate, page, rows);		
+	}
+
+	@RequestMapping("/findSpecList/{id}")
+	public List<Map> findSpecList(@PathVariable("id") Long id){
+		return typeTemplateService.findSpecList(id);
 	}
 	
 }
