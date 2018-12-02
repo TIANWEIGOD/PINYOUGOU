@@ -32,4 +32,9 @@
 	<dubbo:registry address="zookeeper://192.168.25.128:2181"/>
 	<dubbo:annotation package="com.pyg.manager.controller" />
 
+	<bean class="org.springframework.web.multipart.commons.CommonsMultipartResolver" id="multipartResolver">
+		<property name="maxUploadSize" value="5242880"/>
+		<property name="defaultEncoding" value="utf-8"/>
+	</bean>
+
 </beans>

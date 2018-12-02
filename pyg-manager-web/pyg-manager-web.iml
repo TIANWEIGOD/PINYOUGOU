@@ -47,6 +47,7 @@
     <orderEntry type="module" module-name="pyg-sellergoods-interface" />
     <orderEntry type="module" module-name="pyg-pojo" />
     <orderEntry type="module" module-name="pyg-common" />
+    <orderEntry type="module" module-name="pyg-content-interface" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.2.4.RELEASE" level="project" />

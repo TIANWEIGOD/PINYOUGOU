@@ -12,4 +12,4 @@ app.service("uploadService",function($http){
 			transformRequest: angular.identity  //序列化上传的文件
 		});
 	}
-})
+});

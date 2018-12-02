@@ -15,6 +15,9 @@
         <module>pyg-shop-web</module>
         <module>pyg-sellergoods-interface</module>
         <module>pyg-sellergoods-service</module>
+        <module>pyg-content-interface</module>
+        <module>pyg-content-service</module>
+        <module>pyg-protal-web</module>
     </modules>
     <packaging>pom</packaging>
 
