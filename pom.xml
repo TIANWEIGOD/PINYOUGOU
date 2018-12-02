@@ -18,6 +18,8 @@
         <module>pyg-content-interface</module>
         <module>pyg-content-service</module>
         <module>pyg-protal-web</module>
+        <module>pyg-search-interface</module>
+        <module>pyg-search-service</module>
     </modules>
     <packaging>pom</packaging>
 
