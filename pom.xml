@@ -22,6 +22,8 @@
         <module>pyg-search-service</module>
         <module>pyg-search-web</module>
         <module>pyg-data-init</module>
+        <module>pyg-itempage-interface</module>
+        <module>pyg-itempage-service</module>
     </modules>
     <packaging>pom</packaging>
 
