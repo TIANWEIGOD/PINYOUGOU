@@ -3,6 +3,7 @@ package com.pyg.mapper;
 import com.pyg.pojo.TbItem;
 import com.pyg.pojo.TbItemExample;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
@@ -28,4 +29,7 @@ public interface TbItemMapper {
     int updateByPrimaryKeySelective(TbItem record);
 
     int updateByPrimaryKey(TbItem record);
+
+    // @Select("SELECT i.* FROM tb_goods g INNER JOIN tb_item i ON g.id = i.goods_id WHERE g.is_marketable = 1")
+    List<TbItem> grounding();
 }

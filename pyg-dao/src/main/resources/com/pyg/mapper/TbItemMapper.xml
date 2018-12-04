@@ -492,4 +492,8 @@
       seller = #{seller,jdbcType=VARCHAR}
     where id = #{id,jdbcType=BIGINT}
   </update>
+
+  <select id="grounding" resultMap="BaseResultMap">
+    SELECT i.* FROM tb_goods g INNER JOIN tb_item i ON g.id = i.goods_id WHERE g.is_marketable = 1
+  </select>
 </mapper>

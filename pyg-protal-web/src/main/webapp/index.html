@@ -73,8 +73,8 @@
 							<form action="" class="sui-form form-inline">
 								<!--searchAutoComplete-->
 								<div class="input-append">
-									<input type="text" id="autocomplete" type="text" class="input-error input-xxlarge" />
-									<a class="sui-btn btn-xlarge btn-danger" href="search.html">搜索</a>
+									<input type="text" ng-model="keyword" id="autocomplete" type="text" class="input-error input-xxlarge" />
+									<button class="sui-btn btn-xlarge btn-danger" ng-click="search()">搜索</button>
 								</div>
 							</form>
 						</div>

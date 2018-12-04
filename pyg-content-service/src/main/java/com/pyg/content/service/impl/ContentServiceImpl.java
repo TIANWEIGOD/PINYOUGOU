@@ -132,9 +132,9 @@ public class ContentServiceImpl implements ContentService {
             example.createCriteria().andCategoryIdEqualTo(cid);
             example.createCriteria().andStatusEqualTo("1");
             example.setOrderByClause("sort_order");
-            redisTemplate.boundHashOps("contentList").put(cid,contentMapper.selectByExample(example));
+            contentList = contentMapper.selectByExample(example);
+            redisTemplate.boundHashOps("contentList").put(cid,contentList);
             System.out.println("from MYSQL");
-            return contentMapper.selectByExample(example);
         } else {
             System.out.println("from REDIS");
         }
