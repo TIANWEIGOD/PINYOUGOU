@@ -14,5 +14,6 @@
     <dubbo:registry address="zookeeper://192.168.25.128:2181"/>
     <dubbo:annotation package="com.pyg.itemPage.service.impl"/>
     <dubbo:provider timeout="50000"/>
-   
+
+
 </beans>

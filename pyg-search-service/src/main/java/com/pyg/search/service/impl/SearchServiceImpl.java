@@ -48,11 +48,13 @@ public class SearchServiceImpl implements SearchService {
         // 分组显示结束
 
         // 根据第一个分类显示品牌跟规格开始
-        String categoryName = categoryList.get(0);
-        List<Map> brandList = (List<Map>) redisTemplate.boundHashOps("cat_brand").get(categoryName);
-        List<Map> specList = (List<Map>) redisTemplate.boundHashOps("cat_spec").get(categoryName);
-        map.put("brandList", brandList);
-        map.put("specList", specList);
+        if (categoryList.size() > 0) {
+            String categoryName = categoryList.get(0);
+            List<Map> brandList = (List<Map>) redisTemplate.boundHashOps("cat_brand").get(categoryName);
+            List<Map> specList = (List<Map>) redisTemplate.boundHashOps("cat_spec").get(categoryName);
+            map.put("brandList", brandList);
+            map.put("specList", specList);
+        }
         // 根据第一个分类显示品牌跟规格结束
 
 
@@ -104,7 +106,7 @@ public class SearchServiceImpl implements SearchService {
 
         // 分页开始
         Integer pageNo = (Integer) paramMap.get("pageNo");
-        highlightQuery.setOffset((pageNo-1)*60);
+        highlightQuery.setOffset((pageNo - 1) * 60);
         highlightQuery.setRows(60);
         // 分页结束
         HighlightPage<TbItem> highlightPage = solrTemplate.queryForHighlightPage(highlightQuery, TbItem.class);
@@ -120,13 +122,11 @@ public class SearchServiceImpl implements SearchService {
         }
 
 
-
-
         long total = highlightPage.getTotalElements();
         int totalPages = highlightPage.getTotalPages();
         map.put("total", total);
         map.put("itemList", itemList);
-        map.put("totalPages",totalPages);
+        map.put("totalPages", totalPages);
         return map;
     }
 

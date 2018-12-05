@@ -6,6 +6,10 @@
         <fileset id="fileset" name="ApplicationContext Solr" removed="false">
           <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-solr.xml</file>
         </fileset>
+        <fileset id="fileset2" name="ApplicationContext Mq" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-mq.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-solr.xml</file>
+        </fileset>
       </configuration>
     </facet>
   </component>

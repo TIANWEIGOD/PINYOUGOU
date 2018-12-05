@@ -12,8 +12,16 @@ import com.pyg.pojo.TbGoodsExample;
 import com.pyg.pojo.TbItem;
 import com.pyg.utils.PageResult;
 import com.pyg.vo.Goods;
+import org.apache.activemq.command.ActiveMQTopic;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
 
+import javax.jms.Destination;
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -179,6 +187,7 @@ public class GoodsServiceImpl implements GoodsService {
         return new PageResult(page.getTotal(), page.getResult());
     }
 
+    // 审核商品
     @Override
     public void updateAuditStatus(Long[] ids, String auditStatus) {
         for (Long id : ids) {
@@ -186,14 +195,44 @@ public class GoodsServiceImpl implements GoodsService {
             tbGoods.setAuditStatus(auditStatus);
             goodsMapper.updateByPrimaryKey(tbGoods);*/
             // 浪费性能
-            goodsMapper.updateAuditStatus(id,auditStatus);
+            goodsMapper.updateAuditStatus(id, auditStatus);
         }
     }
 
+    @Autowired
+    private JmsTemplate jmsTemplate;
+
+    @Autowired
+    @Qualifier("solrItempageUpdate")
+    private Destination solrItempageUpdate;
+
+    @Autowired
+    @Qualifier("solrItempageDelete")
+    private Destination solrItempageDelete;
+
+    // 上下架
     @Override
     public void updateIsMarketable(Long[] ids, String market) {
         for (Long id : ids) {
-            goodsMapper.updateIsMarketable(id,market);
+            goodsMapper.updateIsMarketable(id, market);
+
+            if (market.equals("1")) {
+                jmsTemplate.send(solrItempageUpdate, new MessageCreator() {
+                    @Override
+                    public Message createMessage(Session session) throws JMSException {
+                        return session.createTextMessage(id + "");
+                    }
+                });
+            }
+
+            if (market.equals("2")) {
+                jmsTemplate.send(solrItempageDelete, new MessageCreator() {
+                    @Override
+                    public Message createMessage(Session session) throws JMSException {
+                        return session.createTextMessage(id + "");
+                    }
+                });
+            }
         }
     }
 
