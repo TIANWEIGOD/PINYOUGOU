@@ -59,7 +59,13 @@ public class SolrManager {
 
     @Autowired
     private TbSpecificationOptionMapper specificationOptionMapper;
-    
+
+    @Test
+    public void deleteRedis(){
+        redisTemplate.delete("cat_brand");
+        redisTemplate.delete("cat_spec");
+    }
+
     @Test
     public void initRedis(){
 
@@ -83,10 +89,9 @@ public class SolrManager {
             redisTemplate.boundHashOps("cat_spec").put(tbItemCat.getName(),specMaps);
         }
 
-
-
-
     }
+
+
 
 
 }

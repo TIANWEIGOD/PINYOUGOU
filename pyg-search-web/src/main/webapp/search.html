@@ -282,20 +282,20 @@
 				</div>
 				<div class="goods-list">
 					<ul class="yui3-g">
-						<li ng-repeat="pojo in resultMap.itemList" class="yui3-u-1-5">
+						<li ng-repeat="item in resultMap.itemList" class="yui3-u-1-5">
 							<div class="list-wrap">
 								<div class="p-img">
-									<a href="item.html" target="_blank"><img src="{{pojo.image}}" /></a>
+									<a href="http://item.pinyougou.com/{{item.id}}.html" target="_blank"><img src="{{item.image}}" /></a>
 								</div>
 								<div class="price">
 									<strong>
 											<em>¥</em>
-											<i>{{pojo.price}}</i>
+											<i>{{item.price}}</i>
 										</strong>
 								</div>
 								<div class="attr">
-									<!--<em>{{pojo.title}}</em>-->
-									<em ng-bind-html="pojo.title | trustHtml"></em>
+									<!--<em>{{item.title}}</em>-->
+									<em ng-bind-html="item.title | trustHtml"></em>
 								</div>
 								<div class="cu">
 									<em><span>促</span>满一件可参加超值换购</em>

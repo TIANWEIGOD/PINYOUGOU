@@ -24,6 +24,8 @@
         <module>pyg-data-init</module>
         <module>pyg-itempage-interface</module>
         <module>pyg-itempage-service</module>
+        <module>pyg-itempage-service</module>
+        <module>pyg-itempage-web</module>
     </modules>
     <packaging>pom</packaging>
 
