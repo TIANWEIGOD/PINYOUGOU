@@ -26,6 +26,10 @@
         <module>pyg-itempage-service</module>
         <module>pyg-itempage-service</module>
         <module>pyg-itempage-web</module>
+        <module>pyg-sms</module>
+        <module>pyg-user-interface</module>
+        <module>pyg-user-service</module>
+        <module>pyg-user-web</module>
     </modules>
     <packaging>pom</packaging>
 
