@@ -59,7 +59,7 @@
 					<div class="control-group">
 						<label class="control-label">短信验证码：</label>
 						<div class="controls">
-							<input type="text" ng-model="code" placeholder="短信验证码" class="input-xfat input-xlarge">  <a href="#" ng-click="sendSms(user.phone)">获取短信验证码{{message}}</a>
+							<input type="text" ng-model="code" placeholder="短信验证码" class="input-xfat input-xlarge">  <button ng-click="sendSms(user.phone)">获取短信验证码{{message}}</button>
 						</div>
 					</div>
 					
@@ -72,7 +72,7 @@
 					<div class="control-group">
 						<label class="control-label"></label>
 						<div class="controls btn-reg">
-							<a class="sui-btn btn-block btn-xlarge btn-danger" ng-click="add()" target="_blank">完成注册</a>
+							<button class="sui-btn btn-block btn-xlarge btn-danger" ng-click="add()">完成注册</button>
 						</div>
 					</div>
 				</form>

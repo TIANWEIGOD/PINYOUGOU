@@ -6,5 +6,9 @@ app.service('userService', function ($http) {
 
     this.add = function (user, code) {
         return $http.post("./user/add?code=" + code, user);
+    };
+
+    this.showName = function () {
+        return $http.get("./login/showName");
     }
 });
