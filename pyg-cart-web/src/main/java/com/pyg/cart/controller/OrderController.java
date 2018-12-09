@@ -5,6 +5,7 @@ import com.pyg.order.service.OrderService;
 import com.pyg.pojo.TbOrder;
 import com.pyg.utils.PygResult;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,7 +17,7 @@ public class OrderController {
     private OrderService orderService;
 
     @RequestMapping("/add")
-    public PygResult add(TbOrder tbOrder){
+    public PygResult add(@RequestBody TbOrder tbOrder){
         try {
             String userId = SecurityContextHolder.getContext().getAuthentication().getName();
             // 来自PC端
