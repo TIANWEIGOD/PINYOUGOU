@@ -6,6 +6,7 @@ import com.pyg.utils.PygResult;
 import com.pyg.vo.Cart;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import utils.CookieUtil;
@@ -64,6 +65,7 @@ public class CartController {
 
     // 添加商品
     @RequestMapping("/addGoodsToCartList")
+    @CrossOrigin(origins = "http://item.pinyougou.com",allowCredentials = "true")
     public PygResult addGoodsToCartList(Long itemId, int num) {
         try {
             // 先获取之前的cartList

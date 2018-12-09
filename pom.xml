@@ -24,7 +24,6 @@
         <module>pyg-data-init</module>
         <module>pyg-itempage-interface</module>
         <module>pyg-itempage-service</module>
-        <module>pyg-itempage-service</module>
         <module>pyg-itempage-web</module>
         <module>pyg-sms</module>
         <module>pyg-user-interface</module>
@@ -33,7 +32,8 @@
         <module>pyg-cart-interface</module>
         <module>pyg-cart-service</module>
         <module>pyg-cart-web</module>
-        <module>pyg-cart-web</module>
+        <module>pyg-order-interface</module>
+        <module>pyg-order-service</module>
     </modules>
     <packaging>pom</packaging>
 
