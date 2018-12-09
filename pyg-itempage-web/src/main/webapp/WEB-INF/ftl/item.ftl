@@ -154,7 +154,7 @@
 							<div class="fl">
 								<ul class="btn-choose unstyled">
 									<li>
-										<a href="cart.html" target="_blank" class="sui-btn  btn-danger addshopcar">加入购物车</a>
+										<button ng-click="addGoodsToCartList('${tbItem.id}',num)" target="_blank" class="sui-btn  btn-danger addshopcar">加入购物车</button>
 									</li>
 								</ul>
 							</div>

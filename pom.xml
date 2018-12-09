@@ -30,6 +30,10 @@
         <module>pyg-user-interface</module>
         <module>pyg-user-service</module>
         <module>pyg-user-web</module>
+        <module>pyg-cart-interface</module>
+        <module>pyg-cart-service</module>
+        <module>pyg-cart-web</module>
+        <module>pyg-cart-web</module>
     </modules>
     <packaging>pom</packaging>
 
