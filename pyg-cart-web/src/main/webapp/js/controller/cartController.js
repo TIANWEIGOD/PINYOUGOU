@@ -72,9 +72,9 @@ app.controller('cartController', function (cartService, $location, $scope) {
         cartService.submitOrder($scope.order).success(function (response) {
             if (response.success) {
                 if ($scope.order.paymentType == '1') {
-                    location.href = "pay.html";
+                    location.href = "http://pay.pinyougou.com/pay.html";
                 } else {
-                    location.href = "paysuccess.html";
+                    location.href = "http://pay.pinyougou.com/paysuccess.html";
                 }
             } else {
                 alert(response.message);

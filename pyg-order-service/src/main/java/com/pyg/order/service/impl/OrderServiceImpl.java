@@ -154,11 +154,12 @@ public class OrderServiceImpl implements OrderService {
         for (String orderId : orderIds) {
             TbOrder order = orderMapper.selectByPrimaryKey(Long.parseLong(orderId));
             if (order != null){
-                order.setStatus("2");
+                order.setStatus("2"); // order的2是已支付
                 orderMapper.updateByPrimaryKey(order);
             }
         }
 
         redisTemplate.boundHashOps("payLog").delete(tbPayLog.getUserId());
     }
+
 }

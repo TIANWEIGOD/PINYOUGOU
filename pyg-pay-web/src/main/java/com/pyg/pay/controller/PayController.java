@@ -1,4 +1,4 @@
-package com.pyg.cart.controller;
+package com.pyg.pay.controller;
 
 import com.alibaba.dubbo.config.annotation.Reference;
 import com.pyg.order.service.OrderService;
@@ -8,7 +8,6 @@ import com.pyg.utils.PygResult;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import utils.IdWorker;
 
 import java.util.Map;
 
