@@ -80,5 +80,5 @@ app.controller('cartController', function (cartService, $location, $scope) {
                 alert(response.message);
             }
         })
-    }
+    };
 });

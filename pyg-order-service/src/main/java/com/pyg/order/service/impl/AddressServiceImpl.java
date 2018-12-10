@@ -1,7 +1,7 @@
-package com.pyg.user.service.impl;
+package com.pyg.order.service.impl;
 import java.util.List;
 
-import com.pyg.user.service.AddressService;
+import com.pyg.order.service.AddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import com.alibaba.dubbo.config.annotation.Service;
 import com.github.pagehelper.Page;

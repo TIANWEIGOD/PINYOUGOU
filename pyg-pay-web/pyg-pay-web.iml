@@ -2,18 +2,10 @@
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
-      <configuration>
-        <fileset id="fileset" name="ApplicationContext Service" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-service.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/spring/applicationContext-tx.xml</file>
-        </fileset>
-      </configuration>
+      <configuration />
     </facet>
     <facet type="web" name="Web">
       <configuration>
-        <descriptors>
-          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        </descriptors>
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
@@ -35,10 +27,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="pyg-order-interface" />
+    <orderEntry type="module" module-name="pyg-pay-interface" />
     <orderEntry type="module" module-name="pyg-pojo" />
     <orderEntry type="module" module-name="pyg-common" />
-    <orderEntry type="module" module-name="pyg-dao" />
+    <orderEntry type="module" module-name="pyg-order-interface" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.2.4.RELEASE" level="project" />

@@ -34,6 +34,9 @@
         <module>pyg-cart-web</module>
         <module>pyg-order-interface</module>
         <module>pyg-order-service</module>
+        <module>pyg-pay-interface</module>
+        <module>pyg-pay-service</module>
+        <module>pyg-pay-web</module>
     </modules>
     <packaging>pom</packaging>
 
