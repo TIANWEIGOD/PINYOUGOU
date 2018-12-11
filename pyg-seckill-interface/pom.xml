@@ -9,31 +9,16 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>pyg-pay-web</artifactId>
-    <packaging>war</packaging>
+    <artifactId>pyg-seckill-interface</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.pinyougou</groupId>
-            <artifactId>pyg-pay-interface</artifactId>
+            <artifactId>pyg-pojo</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
-    <build>
-        <plugins>
-            <!-- 配置 Tomcat 插件 -->
-            <plugin>
-                <groupId>org.apache.tomcat.maven</groupId>
-
-                <artifactId>tomcat7-maven-plugin</artifactId>
-                <configuration>
-                    <path>/</path>
-                    <port>9109</port>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
 
 </project>

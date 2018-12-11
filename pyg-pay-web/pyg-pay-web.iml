@@ -11,6 +11,9 @@
     </facet>
     <facet type="web" name="Web">
       <configuration>
+        <descriptors>
+          <deploymentDescriptor name="web.xml" url="file://$MODULE_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        </descriptors>
         <webroots>
           <root url="file://$MODULE_DIR$/src/main/webapp" relative="/" />
         </webroots>
@@ -35,7 +38,6 @@
     <orderEntry type="module" module-name="pyg-pay-interface" />
     <orderEntry type="module" module-name="pyg-pojo" />
     <orderEntry type="module" module-name="pyg-common" />
-    <orderEntry type="module" module-name="pyg-order-interface" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:4.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:4.2.4.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-core:4.2.4.RELEASE" level="project" />

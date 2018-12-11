@@ -112,7 +112,7 @@ public class OrderServiceImpl implements OrderService {
         // private Date createTime;
         tbPayLog.setCreateTime(new Date());
         // private Long totalFee;
-        tbPayLog.setTotalFee((long) (title_money * 100));
+        tbPayLog.setTotalFee((long) (title_money * 100)); // 这个钱是分
         // private String userId;
         tbPayLog.setUserId(userId);
         // private String tradeState; 交易状态
@@ -129,37 +129,6 @@ public class OrderServiceImpl implements OrderService {
         // private Date payTime;
         // private String transactionId;
         // 这俩个是支付完成的时候使用
-    }
-
-    @Override
-    public TbPayLog searchPayLogFromRedis(String userId) {
-        return (TbPayLog) redisTemplate.boundHashOps("payLog").get(userId);
-    }
-
-    @Override
-    public void updateOrderStatus(String out_trade_no, String transaction_id) {
-        // 先修改日志
-        TbPayLog tbPayLog = payLogMapper.selectByPrimaryKey(out_trade_no);
-        // private Date payTime;
-        tbPayLog.setPayTime(new Date());
-        // private String transactionId;
-        tbPayLog.setTransactionId(transaction_id); // 微信支付订单号
-        // private String tradeState; 交易状态
-        tbPayLog.setTradeState("1"); // 已支付
-
-        // 再通过oderList修改对应的order
-        String orderList = tbPayLog.getOrderList();
-        String[] orderIds = orderList.split(",");
-        // 清楚redis的日志缓存
-        for (String orderId : orderIds) {
-            TbOrder order = orderMapper.selectByPrimaryKey(Long.parseLong(orderId));
-            if (order != null){
-                order.setStatus("2"); // order的2是已支付
-                orderMapper.updateByPrimaryKey(order);
-            }
-        }
-
-        redisTemplate.boundHashOps("payLog").delete(tbPayLog.getUserId());
     }
 
 }

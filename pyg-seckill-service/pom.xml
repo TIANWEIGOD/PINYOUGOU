@@ -9,24 +9,19 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>pyg-pay-service</artifactId>
+    <artifactId>pyg-seckill-service</artifactId>
     <packaging>war</packaging>
 
     <dependencies>
         <dependency>
             <groupId>com.pinyougou</groupId>
-            <artifactId>pyg-pay-interface</artifactId>
+            <artifactId>pyg-seckill-interface</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.pinyougou</groupId>
             <artifactId>pyg-dao</artifactId>
             <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.github.wxpay</groupId>
-            <artifactId>wxpay-sdk</artifactId>
-            <version>0.0.3</version>
         </dependency>
     </dependencies>
 
@@ -40,9 +35,10 @@
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <configuration>
                     <path>/</path>
-                    <port>9008</port>
+                    <port>9009</port>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
 </project>

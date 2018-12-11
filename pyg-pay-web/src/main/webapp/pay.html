@@ -64,8 +64,8 @@
 				<div class="checkout-steps">
 					<div class="fl weixin">微信支付</div>
                     <div class="fl sao"> 
-                        <!--<p class="red">二维码已过期，刷新页面重新获取二维码。</p> -->
-                        <div class="fl code">
+                        <p ng-if="flag" class="red">二维码已过期，刷新页面重新获取二维码。<button ng-click="createNative()">重新生成二维码</button></p>
+                        <div ng-if="!flag" class="fl code">
 							<!--二维码的位置-->
                             <img id="qrious" alt="">
                             <div class="saosao">

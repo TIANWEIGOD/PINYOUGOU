@@ -37,6 +37,10 @@
         <module>pyg-pay-interface</module>
         <module>pyg-pay-service</module>
         <module>pyg-pay-web</module>
+        <module>pyg-seckill-interface</module>
+        <module>pyg-seckill-service</module>
+        <module>pyg-seckill-web</module>
+        <module>pyg-seckill-task</module>
     </modules>
     <packaging>pom</packaging>
 
