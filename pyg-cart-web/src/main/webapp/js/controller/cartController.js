@@ -3,7 +3,7 @@ app.controller('cartController', function (cartService, $location, $scope) {
     $scope.entity = {};
 
     // 支付类型，1、在线支付，2、货到付款
-    $scope.order = {paymentType: '1'}
+    $scope.order = {paymentType: '1'};
 
     // 查询购物车里的商品
     $scope.findCartList = function () {
