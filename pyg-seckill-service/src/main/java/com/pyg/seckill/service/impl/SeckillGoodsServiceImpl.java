@@ -118,9 +118,9 @@ public class SeckillGoodsServiceImpl implements SeckillGoodsService {
         // 添加下单缓存
         redisTemplate.boundListOps(OrderRecode.class.getSimpleName()).leftPush(orderRecode);
 
-        System.out.println(1);
+        System.out.println("线程开始之前");
         executor.execute(createOrder);
-        System.out.println(2);
+        System.out.println("线程开启之后");
     }
 
 

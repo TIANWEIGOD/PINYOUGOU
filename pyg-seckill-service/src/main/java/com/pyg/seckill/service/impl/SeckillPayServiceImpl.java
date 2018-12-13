@@ -10,6 +10,7 @@ import com.pyg.seckill.service.SeckillPayService;
 import com.pyg.utils.SysContant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.data.redis.core.BoundHashOperations;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.transaction.annotation.Transactional;
 import utils.HttpClient;
@@ -113,6 +114,7 @@ public class SeckillPayServiceImpl implements SeckillPayService {
 
     }
 
+    @Autowired
     private TbSeckillOrderMapper seckillOrderMapper;
 
     @Override
@@ -124,7 +126,7 @@ public class SeckillPayServiceImpl implements SeckillPayService {
         }
 
         seckillOrder.setPayTime(new Date());
-        seckillOrder.setStatus("1");
+        seckillOrder.setStatus("1"); // 订单支付
         seckillOrder.setTransactionId(transaction_id + "");
 
         seckillOrderMapper.updateByPrimaryKey(seckillOrder);
@@ -143,19 +145,25 @@ public class SeckillPayServiceImpl implements SeckillPayService {
     public void removeRedisOrder(String userId) {
         TbSeckillOrder seckillOrder = (TbSeckillOrder) redisTemplate.boundHashOps("seckillOrder").get(userId);
 
-        String goodId = seckillOrder.getSellerId();
+        Long goodId = seckillOrder.getSeckillId();
 
-        TbSeckillGoods seckillGood = (TbSeckillGoods) redisTemplate.boundHashOps("seckillGood").get(goodId);
+        BoundHashOperations hashOperations = redisTemplate.boundHashOps("seckillGood");
+        TbSeckillGoods seckillGood = (TbSeckillGoods) hashOperations.get(goodId);
 
         if (seckillGood == null) {
-            seckillGood = seckillGoodsMapper.selectByPrimaryKey(Long.parseLong(goodId));
+            seckillGood = seckillGoodsMapper.selectByPrimaryKey(goodId);
             seckillGood.setStockCount(0);
         }
 
         seckillGood.setStockCount(seckillGood.getStockCount() + 1);
+        // 也往队列出添加该商品，不添加的话，我们都是从这里拿的商品，这样就会导致商品的数量出现问题
+        redisTemplate.boundListOps(SysContant.SECKILL_PREFIX + goodId).leftPush(goodId);
         redisTemplate.boundHashOps("seckillGood").put(goodId, seckillGood);
 
         redisTemplate.boundHashOps("seckillOrder").delete(userId);
+        seckillOrder.setStatus("2"); // 订单超时失效状态
+        seckillOrderMapper.updateByPrimaryKey(seckillOrder);
+        // 用户排队删除
         redisTemplate.boundSetOps(SysContant.SECKILL_USER).remove(userId);
     }
 

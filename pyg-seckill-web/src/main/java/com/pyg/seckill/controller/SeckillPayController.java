@@ -50,7 +50,7 @@ public class SeckillPayController {
                 num++;
             }
 
-            // seckillPayService.removeRedisOrder(userId);
+            seckillPayService.removeRedisOrder(userId);
             return new PygResult(false, "验证码已经超时");
         } catch (Exception e) {
             e.printStackTrace();

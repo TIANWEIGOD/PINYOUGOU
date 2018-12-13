@@ -40,7 +40,7 @@
         <module>pyg-seckill-interface</module>
         <module>pyg-seckill-service</module>
         <module>pyg-seckill-web</module>
-        <module>pyg-seckill-task</module>
+        <module>pyg-seckill-tasks</module>
     </modules>
     <packaging>pom</packaging>
 

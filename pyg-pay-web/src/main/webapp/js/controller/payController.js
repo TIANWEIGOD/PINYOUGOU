@@ -14,13 +14,13 @@ app.controller("payController", function (payService, $location, $scope) {
                 value: response.code_url
             });
 
-            queryPayStatus($scope.out_trade_no);
+            $scope.queryPayStatus($scope.out_trade_no);
         });
     };
 
 
     // 支付是否完成
-    queryPayStatus = function (out_trade_no) {
+    $scope.queryPayStatus = function (out_trade_no) {
         payService.queryPayStatus(out_trade_no).success(function (response) {
             if (response.success) {
                 location.href = "paysuccess.html#?money=" + $scope.money;

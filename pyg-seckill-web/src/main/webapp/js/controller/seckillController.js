@@ -53,6 +53,20 @@ app.controller("seckillController", function (seckillService, $location, $interv
 
                     //拼接时间
                     var timString = "";
+
+                    if (days < 10) {
+                        days = "0" + days;
+                    }
+
+                    if (hours < 10) {
+                        hours = "0" + hours;
+                    }
+                    if (minutes < 10) {
+                        minutes = "0" + minutes;
+                    }
+                    if (seconds < 10) {
+                        seconds = "0" + seconds;
+                    }
                     if (days > 0) {
                         timString = days + "天:";
                     }
